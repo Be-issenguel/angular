@@ -12,4 +12,8 @@ export class EstudanteService {
   getEstudantes() {
     return this.http.get<Estudante[]>('http://localhost/laravel-livewire/public/api/estudantes');
   }
+
+  destroy(id: Number) {
+    return this.http.get<Number>('http://localhost/laravel-livewire/public/api/delete/' + id)
+  }
 }

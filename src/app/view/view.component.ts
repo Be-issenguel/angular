@@ -14,6 +14,16 @@ export class ViewComponent implements OnInit {
   constructor(private _estudanteService: EstudanteService) { }
 
   ngOnInit() {
+    this.getEstudantes();
+  }
+
+  remover(id: Number) {
+    this._estudanteService.destroy(id).subscribe((data) => {
+      this.getEstudantes();
+    });
+  }
+
+  getEstudantes() {
     this._estudanteService.getEstudantes().subscribe((estudantes: Estudante[]) => {
       this.estudantes = estudantes;
     });
