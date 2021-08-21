@@ -42,7 +42,10 @@
               <strong>O campo email é obrigatório</strong>
             </div>
 
-            <button class="btn btn-success mt-4" (click)="salvar()">Salvar</button>
+            <div class="mt-4">
+              <a class="btn btn-success" (click)="salvar()">Salvar</a> &nbsp;
+              <a routerLink="/view" class="btn btn-dark">Cancel</a>
+            </div>
           </form>
         </div>
       </div>
