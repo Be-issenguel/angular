@@ -11,4 +11,8 @@ export class EstudanteService {
   getAll() {
     return this._http.get<Estudante[]>('http://localhost/laravel-livewire/public/api/estudantes');
   }
+
+  store(estudante: Estudante) {
+    return this._http.post<Estudante>('http://localhost/laravel-livewire/public/api/add', estudante);
+  }
 }

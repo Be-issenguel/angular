@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { EstudanteService } from '../estudante.service';
 
 @Component({
   selector: 'app-add',
@@ -10,7 +12,11 @@ export class AddComponent implements OnInit {
 
   formEstudante: FormGroup
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private _estudanteService: EstudanteService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.formEstudante = this.formBuilder.group({
@@ -22,7 +28,10 @@ export class AddComponent implements OnInit {
   }
 
   salvar() {
-    console.log(this.formEstudante.value);
+    console.log();
+    this._estudanteService.store(this.formEstudante.value).subscribe(e => {
+      this.router.navigate(['view']);
+    })
   }
 
 }
