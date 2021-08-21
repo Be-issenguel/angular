@@ -1,3 +1,28 @@
-<p>
-  view works!
-</p>
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="text-center">Lista de Estudantes</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Sobre Nome</th>
+            <th>Email</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let estudante of estudantes">
+            <td>{{ estudante.nome }}</td>
+            <td>{{ estudante.sobrenome }}</td>
+            <td>{{ estudante.email }}</td>
+            <td>
+              <a href="#" class="btn btn-info">Editar</a>&nbsp;
+              <a href="#" class="btn btn-danger">Remover</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
