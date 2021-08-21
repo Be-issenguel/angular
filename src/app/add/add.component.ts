@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { EstudanteService } from '../estudante.service';
 
 @Component({
   selector: 'app-add',
@@ -9,7 +11,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddComponent implements OnInit {
 
   addForm: FormGroup
-  constructor(private formBuilder: FormBuilder) { }
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private _estudanteService: EstudanteService,
+    private route: Router
+  ) { }
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
@@ -20,7 +27,9 @@ export class AddComponent implements OnInit {
   }
 
   salvar() {
-    console.log(this.addForm.value);
+    this._estudanteService.create(this.addForm.value).subscribe((estudante) => {
+      this.route.navigate(['view']);
+    })
   }
 
 
