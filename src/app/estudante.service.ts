@@ -15,4 +15,8 @@ export class EstudanteService {
   store(estudante: Estudante) {
     return this._http.post<Estudante>('http://localhost/laravel-livewire/public/api/add', estudante);
   }
+
+  destroy(id: Number) {
+    return this._http.delete<Number>('http://localhost/laravel-livewire/public/api/delete/' + id);
+  }
 }

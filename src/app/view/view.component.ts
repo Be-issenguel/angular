@@ -23,4 +23,10 @@ export class ViewComponent implements OnInit {
     })
   }
 
+  delete(id: Number) {
+    this._estudanteService.destroy(id).subscribe(e => {
+      this.index()
+    })
+  }
+
 }
