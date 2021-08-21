@@ -14,4 +14,8 @@ export class EstudanteService {
     return this._http.post<Estudante>('http://localhost/laravel-livewire/public/api/add', estudante);
   }
 
+  read() {
+    return this._http.get<Estudante[]>('http://localhost/laravel-livewire/public/api/estudantes');
+  }
+
 }

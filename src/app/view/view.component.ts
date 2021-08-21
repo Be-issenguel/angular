@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Estudante } from '../estudante';
+import { EstudanteService } from '../estudante.service';
 
 @Component({
   selector: 'app-view',
@@ -10,9 +11,16 @@ export class ViewComponent implements OnInit {
 
   estudantes: Estudante[]
 
-  constructor() { }
+  constructor(private _estudanteService: EstudanteService) { }
 
   ngOnInit() {
+    this.getAll()
+  }
+
+  getAll() {
+    this._estudanteService.read().subscribe((estudantes) => {
+      this.estudantes = estudantes
+    })
   }
 
 }
