@@ -19,4 +19,8 @@ export class EstudanteService {
   destroy(id: Number) {
     return this._http.delete<Number>('http://localhost/laravel-livewire/public/api/delete/' + id);
   }
+
+  find(id: Number) {
+    return this._http.get<Estudante>('http://localhost/laravel-livewire/public/api/find/' + id);
+  }
 }
