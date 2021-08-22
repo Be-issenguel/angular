@@ -1,0 +1,59 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="text-center">
+            Edição de Estudante
+          </h1>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="editForm" class="form">
+            <input type="hidden" formControlName="id">
+            <div class="form-group">
+              <label for="nome">NOME: <span class="text-danger">*</span> </label>
+              <input type="text" class="form-control" id="nome" formControlName="nome">
+            </div>
+
+            <div class="text-danger" *ngIf="editForm.get('nome').hasError('required') && editForm.get('nome').touched">
+              O campo nome é obrigatório
+            </div>
+
+            <div class=" form-group">
+              <label for="sobrenome">SOBRE NOME: <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="sobrenome" formControlName="sobrenome">
+            </div>
+
+            <div class=" text-danger"
+              *ngIf="editForm.get('sobrenome').hasError('required') && editForm.get('sobrenome').touched">
+              O campo sobre nome é obrigatório
+            </div>
+
+            <div class=" text-danger" *ngIf="editForm.get('sobrenome').hasError('maxlength')">
+              O campo sobre nome deve ter no máximo 12 caracteres
+            </div>
+
+            <div class="form-group">
+              <label for="email">EMAIL: <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="email" formControlName="email">
+            </div>
+
+            <div class="text-danger" *ngIf="editForm.get('email').hasError('required') && editForm.get('email').touched">
+              O campo email é obrigatório
+            </div>
+
+            <div class=" text-danger" *ngIf="editForm.get('email').hasError('maxlength')">
+              O campo email deve ter no máximo 30 caracteres
+            </div>
+
+            <div class="mt-4">
+              <button class="btn btn-success" (click)="editar()">Salvar</button> &nbsp;
+              <a routerLink="/view" class="btn btn-danger">Cancelar</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
