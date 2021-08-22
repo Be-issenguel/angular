@@ -19,7 +19,7 @@
             <td>{{ estudante.email }}</td>
             <td>
               <a class="btn btn-warning" routerLink="/edit/{{ estudante.id }}">Editar</a> &nbsp;
-              <a class="btn btn-danger">Remover</a>
+              <a class="btn btn-danger" (click)="destroy(estudante.id)">Remover</a>
             </td>
           </tr>
         </tbody>

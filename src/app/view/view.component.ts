@@ -23,4 +23,10 @@ export class ViewComponent implements OnInit {
     })
   }
 
+  destroy(id) {
+    this._estudanteService.delete(id).subscribe(() => {
+      this.getAll();
+    })
+  }
+
 }
