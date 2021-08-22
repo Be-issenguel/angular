@@ -18,6 +18,10 @@ export class EstudanteService {
     return this._http.get<Estudante[]>('http://localhost/laravel-livewire/public/api/estudantes');
   }
 
+  update(estudante: Estudante) {
+    return this._http.put<Estudante>('http://localhost/laravel-livewire/public/api/update', estudante);
+  }
+
   get(id: Number) {
     return this._http.get<Estudante>('http://localhost/laravel-livewire/public/api/find/' + id);
   }

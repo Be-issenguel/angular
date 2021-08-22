@@ -38,7 +38,8 @@
               <input type="email" class="form-control" id="email" formControlName="email">
             </div>
 
-            <div class="text-danger" *ngIf="editForm.get('email').hasError('required') && editForm.get('email').touched">
+            <div class="text-danger"
+              *ngIf="editForm.get('email').hasError('required') && editForm.get('email').touched">
               O campo email é obrigatório
             </div>
 
@@ -47,7 +48,7 @@
             </div>
 
             <div class="mt-4">
-              <button class="btn btn-success" (click)="editar()">Salvar</button> &nbsp;
+              <button class="btn btn-success" (click)="editar()">Editar</button> &nbsp;
               <a routerLink="/view" class="btn btn-danger">Cancelar</a>
             </div>
 
