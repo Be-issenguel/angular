@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EstudanteService } from '../estudante.service';
 
 @Component({
   selector: 'app-add',
@@ -9,7 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddComponent implements OnInit {
 
   addForm: FormGroup
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private estudanteService: EstudanteService
+  ) { }
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
@@ -20,8 +24,9 @@ export class AddComponent implements OnInit {
   }
 
   salvar() {
-    console.log(this.addForm.value);
-
+    this.estudanteService.store(this.addForm.value).subscribe((estudantes) => {
+      console.log(estudantes);
+    })
   }
 
 }
