@@ -14,4 +14,7 @@ export class EstudanteService {
     return this._http.post<Estudante>('http://laravel-livewire.me/api/add', estudante);
   }
 
+  all() {
+    return this._http.get<Estudante[]>('http://laravel-livewire.me/api/estudantes');
+  }
 }
