@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="text-center">Edição de Estudante</h1>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="editForm" class="form" novalidate>
+            <input type="hidden" formControlName="id">
+            <div class="form-group">
+              <label for="nome">Nome:</label>
+              <input type="text" formControlName="nome" id="nome" class="form-control">
+            </div>
+            <span class="text-danger"
+              *ngIf="editForm.get('nome').hasError('required') && editForm.get('nome').touched">O
+              campo nome é obrigatório</span>
+            <div class="form-group">
+              <label for="sobrenome">Sobre Nome:</label>
+              <input type="text" formControlName="sobrenome" id="sobrenome" class="form-control">
+            </div>
+            <span class="text-danger"
+              *ngIf="editForm.get('sobrenome').hasError('required') && editForm.get('sobrenome').touched">O campo sobre
+              nome é obrigatório</span>
+            <span class="text-danger" *ngIf="editForm.get('sobrenome').hasError('maxlength')">O campo sobre
+              nome deve ter no máximo 12 caracteres</span>
+
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" formControlName="email" id="email" class="form-control">
+            </div>
+            <span class="text-danger"
+              *ngIf="editForm.get('email').hasError('required') && editForm.get('email').touched">O campo email é
+              obrigatório</span>
+            <span class="text-danger" *ngIf="editForm.get('email').hasError('maxlength')">O campo email deve ter no
+              máximo 30 caracteres</span>
+            <div class="form-group">
+
+              <button class="btn btn-success mt-4" (click)="salvar()">Salvar</button> &nbsp;
+              <a class="btn btn-danger mt-4" routerLink="/view">Cancelar</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

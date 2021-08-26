@@ -21,7 +21,7 @@
                 <td>{{ estudante.sobrenome }}</td>
                 <td>{{ estudante.email }}</td>
                 <td>
-                  <a class="btn btn-primary btn-sm">Editar</a> &nbsp;
+                  <a class="btn btn-primary btn-sm" routerLink="/edit/{{estudante.id}}">Editar</a> &nbsp;
                   <a class="btn btn-danger btn-sm" (click)="remover(estudante.id)">Remover</a>
                 </td>
               </tr>
