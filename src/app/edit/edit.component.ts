@@ -36,4 +36,10 @@ export class EditComponent implements OnInit {
     })
   }
 
+  salvar() {
+    this.estudanteService.update(this.editForm.value).subscribe((estudante) => {
+      this.router.navigate(['view'])
+    })
+  }
+
 }
