@@ -22,7 +22,7 @@
                 <td>{{ estudante.email }}</td>
                 <td>
                   <a class="btn btn-primary btn-sm">Editar</a> &nbsp;
-                  <a class="btn btn-danger btn-sm">Remover</a>
+                  <a class="btn btn-danger btn-sm" (click)="remover(estudante.id)">Remover</a>
                 </td>
               </tr>
             </tbody>
