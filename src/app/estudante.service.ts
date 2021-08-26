@@ -10,11 +10,11 @@ export class EstudanteService {
 
   constructor(private _http: HttpClient) { }
 
-  store(estudante: Estudante) {
+  create(estudante: Estudante) {
     return this._http.post<Estudante>('http://laravel-livewire.me/api/add', estudante);
   }
 
-  all() {
+  read() {
     return this._http.get<Estudante[]>('http://laravel-livewire.me/api/estudantes');
   }
 }

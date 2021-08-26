@@ -18,7 +18,7 @@ export class ViewComponent implements OnInit {
   }
 
   getAll() {
-    this.estudanteService.all().subscribe((estudantes) => {
+    this.estudanteService.read().subscribe((estudantes) => {
       this.estudantes = estudantes
     })
   }

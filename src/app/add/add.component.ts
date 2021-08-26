@@ -24,7 +24,7 @@ export class AddComponent implements OnInit {
   }
 
   salvar() {
-    this.estudanteService.store(this.addForm.value).subscribe((estudantes) => {
+    this.estudanteService.create(this.addForm.value).subscribe((estudantes) => {
       console.log(estudantes);
     })
   }
